@@ -1,0 +1,27 @@
+{
+  "name": "Get Repos",
+  "version": "1.0",
+  "description": "Gets Repos for a GitHub User",
+  "icons": {
+    "16": "images/icon-16.png"
+  },
+  "manifest_version":2,
+  "browser_action": {
+    "default_title": "Get Repos",
+    "default_icon": {
+      "19": "images/icon-19.png",
+      "38": "images/icon-38.png"
+      },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/robots.txt*"],
+      "js": ["oauth2/oauth2_inject.js"],
+        "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "https://github.com/login/oauth/access_token"
+  ]
+}
